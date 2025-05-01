@@ -1,0 +1,25 @@
+services:
+  flask-app:
+    image: crisn28cr/miappflask:latest
+    ports:
+      - "80:80"
+    environment:
+      - MYSQL_HOST=mysql-db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DB=prueba
+    depends_on:
+      - mysql-db
+  
+  mysql-db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=prueba
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql-data:

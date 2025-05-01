@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            margin: 5px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #f1f1f1;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agregar Usuario</h1>
+    <form method="POST">
+        Nombre: <input type="text" name="nombre" required>
+        Edad: <input type="number" name="edad" required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>Lista de Usuarios</h2>
+    <ul>
+        {% for usuario in usuarios %}
+            <li>
+                {{ usuario['nombre'] }} - {{ usuario['edad'] }} años
+                <form method="POST" action="{{ url_for('eliminar', usuario_id=usuario['id']) }}" style="display:inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
