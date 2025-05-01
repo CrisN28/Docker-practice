@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0a830ab5fd8b479c9e0aaa7dc29d107a }}/crisn28cr/miappflask:${{ github.sha }}
+        tags: crisn28cr/miappflask:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'miappwebG'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_b432b0de3078435698c2aa12d2be1ec5 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0a830ab5fd8b479c9e0aaa7dc29d107a }}/crisn28cr/miappflask:${{ github.sha }}'
+        images: 'crisn28cr/miappflask:${{ github.sha }}'
