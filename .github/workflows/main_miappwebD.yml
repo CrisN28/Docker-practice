@@ -17,4 +17,4 @@ jobs:
         app-name: 'miappwebD'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_4c21f68a1f87431ebde1b8ff1b4cec20 }}
-        images: 'crisn28cr/miappflask:latest'
+        images: 'crisn28cr/miapp-flask-mysql:latest'
