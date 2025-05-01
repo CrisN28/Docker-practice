@@ -16,5 +16,5 @@ jobs:
       with:
         app-name: 'miappwebG'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b432b0de3078435698c2aa12d2be1ec5 }}
+        publish-profile: ${{ secrets.AzureAppService_PUBLISHPROFILE_BBBBFFFA55714269992EE7B08053809B }}
         images: 'crisn28cr/miappflask:latest'
